@@ -19,7 +19,7 @@ function render(renderItems) {
     for(let i = 0; i < renderItems.length; i++) {
         listItems += 
         `<li>
-            <a href='https://${renderItems[i]}' target='_blank' rel='noopener noreferrer'>
+            <a href='${renderItems[i]}' target='_blank' rel='noopener noreferrer'>
                 ${renderItems[i]}
             </a>
         </li>`;
@@ -33,7 +33,7 @@ function render(renderItems) {
 saveInput.addEventListener('click', function() {
 
     if(checkForDuplicate(myLeads, inputEl.value) === false) {
-        myLeads.push(inputEl.value);
+        myLeads.push("https://" + inputEl.value);
         localStorage.setItem("myLeads", JSON.stringify(myLeads));
         render(myLeads);
         inputEl.value = '';
